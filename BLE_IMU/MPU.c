@@ -264,6 +264,72 @@ unsigned int Rx1, Rx2;
     return (Rx1<<8) + Rx2;;
 }
 
+unsigned int MPU_Read_Z( void )
+{
+unsigned int Rx1, Rx2;
+    //MPU6050
 
+    i2c_Start(0);
+    i2c_Tx(curr_I2C_Addr);
+    i2c_Tx(MPU6050_RA_ACCEL_ZOUT_H);
+    i2c_Start(1); //ReStart
+    i2c_Tx(curr_I2C_Addr + 1);
+    Rx1 = i2c_Rx(0);
+    Rx2 = i2c_Rx(1);
+    i2c_Stop();
 
+    return (Rx1<<8) + Rx2;;
+}
 
+//Gyro Read Functions
+
+unsigned int MPU_Read_XGy( void )
+{
+unsigned int Rx1, Rx2;
+    //MPU6050
+
+    i2c_Start(0);
+    i2c_Tx(curr_I2C_Addr);
+    i2c_Tx(MPU6050_RA_GYRO_ZOUT_H);
+    i2c_Start(1); //ReStart
+    i2c_Tx(curr_I2C_Addr + 1);
+    Rx1 = i2c_Rx(0);
+    Rx2 = i2c_Rx(1);
+    i2c_Stop();
+
+    return (Rx1<<8) + Rx2;;
+}
+
+unsigned int MPU_Read_YGy( void )
+{
+unsigned int Rx1, Rx2;
+    //MPU6050
+
+    i2c_Start(0);
+    i2c_Tx(curr_I2C_Addr);
+    i2c_Tx(MPU6050_RA_GYRO_ZOUT_H);
+    i2c_Start(1); //ReStart
+    i2c_Tx(curr_I2C_Addr + 1);
+    Rx1 = i2c_Rx(0);
+    Rx2 = i2c_Rx(1);
+    i2c_Stop();
+
+    return (Rx1<<8) + Rx2;;
+}
+
+unsigned int MPU_Read_ZGy( void )
+{
+unsigned int Rx1, Rx2;
+    //MPU6050
+
+    i2c_Start(0);
+    i2c_Tx(curr_I2C_Addr);
+    i2c_Tx(MPU6050_RA_GYRO_ZOUT_H);
+    i2c_Start(1); //ReStart
+    i2c_Tx(curr_I2C_Addr + 1);
+    Rx1 = i2c_Rx(0);
+    Rx2 = i2c_Rx(1);
+    i2c_Stop();
+
+    return (Rx1<<8) + Rx2;;
+}
